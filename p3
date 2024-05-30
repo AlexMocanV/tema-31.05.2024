@@ -1,0 +1,28 @@
+#include <fstream>
+#include <cstring>
+using namespace std;
+
+string nume="numere";
+ifstream cin(nume+".in");
+ofstream cout(nume+".out");
+
+bool f[10];
+
+int v[1000001];
+
+int main()
+{
+    int x,maxi=0,e=0;
+    while(cin>>x){
+        v[++e]=x;
+        maxi=max(maxi,max(x%10,(x/10)%10));
+    }
+    for(int i=1;i<=e;i++)
+    {
+        if((v[i]%10==maxi) or ((v[i]/10)%10==maxi))
+        {
+            cout<<v[i]<<" ";
+        }
+    }
+    return 0;
+}
